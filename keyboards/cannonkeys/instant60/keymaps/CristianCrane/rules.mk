@@ -1,0 +1,3 @@
+CAPS_WORD_ENABLE = yes
+LEADER_ENABlE = yes
+COMBO_ENABLE = yes
