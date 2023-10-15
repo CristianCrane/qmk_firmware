@@ -1,2 +1,2 @@
 /* Combo settings */
-#define COMBO_COUNT 5
+#define COMBO_COUNT 2

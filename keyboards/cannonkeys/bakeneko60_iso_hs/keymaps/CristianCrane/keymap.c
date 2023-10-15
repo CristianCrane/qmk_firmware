@@ -36,6 +36,13 @@ enum layer_names {
 #define CC_SNPWR LGUI(KC_RIGHT)     // snap window right, combine with shift to move window to right monitor
 #define CC_ATAB LALT(KC_TAB)        // instant switch between last used app
 #define CC_HTAB LCTL(LALT(KC_TAB))  // brings up alt tab window view without having to hold it
+// quick switch between apps
+#define CC_APP1 LGUI(KC_1)
+#define CC_APP2 LGUI(KC_2)
+#define CC_APP3 LGUI(KC_3)
+#define CC_APP4 LGUI(KC_4)
+#define CC_APP5 LGUI(KC_5)
+
 // in-app commands
 #define CC_BACK LALT(KC_LEFT)       // page back (chrome, windows)
 #define CC_FWD  LALT(KC_RIGHT)      // page forward (chrome, windows)
@@ -70,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_FN1] = LAYOUT_60_iso(
-    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_VOLD, KC_VOLU,  KC_DEL,
+    _______, CC_APP1, CC_APP2, CC_APP3, CC_APP4, CC_APP5, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_VOLD, KC_VOLU,  KC_DEL,
     _______, CC_HTAB, CC_PTAB, CC_MAXW, CC_NTAB, _______, _______, CC_PWORD,KC_UP,   CC_NWORD,KC_PGUP, _______, _______,
     _______, CC_ATAB, CC_SNPWL,CC_MINW, CC_SNPWR,CC_AMP,  CC_PIPE, KC_LEFT, KC_DOWN, KC_RIGHT,KC_PGDN, _______, _______, _______,
     _______, _______, CC_KILW, CC_BPAG, _______, CC_FPAG, _______, _______, KC_HOME, _______, KC_END,  CC_OPNW,          _______,
@@ -82,15 +89,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // define combos
 const uint16_t PROGMEM esc[] = {KC_Q, KC_W, COMBO_END}; // qw --> esc
 const uint16_t PROGMEM bksp[] = {KC_L, KC_SCLN, COMBO_END}; // l; --> backspace
-const uint16_t PROGMEM del[] = {KC_P, KC_LBRC, COMBO_END}; // p[ --> del
-const uint16_t PROGMEM undo[] = {KC_Z, KC_X, COMBO_END}; // zx --> undo
-const uint16_t PROGMEM redo[] = {KC_X, KC_C, COMBO_END}; // xc --> redo
 
 // map them (comboName, keypress)
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(esc, KC_ESC),
-    COMBO(bksp, KC_BSPC),
-    COMBO(del, KC_DEL),
-    COMBO(undo, CC_UNDO),
-    COMBO(redo, CC_REDO)
+    COMBO(bksp, KC_BSPC)
 };
